@@ -26,5 +26,12 @@ do
 		if [ -d "${mountpoint}" ] ; then
 			mount "$part" "${mountpoint}"
 		fi
+	elif is_file_avaiable "$part" "/merge"
+	then
+	    echo "Found: ${part}"
+	    mount "${part}" /tmp/disk
+		cp -prf /tmp/disk/merge/* /
+		umount -lf /tmp/disk
+		rmdir /tmp/disk
 	fi
 done
