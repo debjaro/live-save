@@ -1,1 +1,2 @@
-systemctl enable live-save.service
+which systemctl && systemctl enable live-save.service
+which rc-update && rc-update add live-save default
